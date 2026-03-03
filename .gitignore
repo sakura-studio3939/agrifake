@@ -1,0 +1,26 @@
+# Node.js
+node_modules/
+
+# Java / Spring Boot
+*.class
+*.jar
+*.war
+*.log
+target/
+bin/
+
+# Eclipse
+.settings/
+*.classpath
+*.project
+
+# VSCode
+.vscode/
+
+# OS系
+.DS_Store
+Thumbs.db
+
+# ===== Spring Boot Secret Config =====
+src/main/resources/application.properties
+src/main/resources/application-*.properties

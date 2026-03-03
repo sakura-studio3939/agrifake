@@ -1,0 +1,50 @@
+/* ===== 農場理念 ===== */
+/* 画像サイズ（仮） */
+.philosophy__image {
+  width: 40%;
+}
+
+.philosophy__image img {
+  width: 100%;
+}
+
+.philosophy__content {
+  width: 60%;
+}
+
+/* カードflex */
+.philosophy__card {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+.philosophy__card--reverse {
+  flex-direction: row-reverse;
+}
+
+.philosophy__content--reverse {
+  text-align: right;
+}
+
+/* ===== 生産物 ===== */
+.product__list {
+  display: grid;
+  gap: 12px;
+}
+
+.product__card-image img {
+  width: 100%;
+}
+
+/* ----- 農作物 ----- */
+.product__group--fresh .product__list {
+  grid-template-columns: repeat(3, 300px);
+}
+
+/* ----- 加工品 ----- */
+.product__group--processed .product__list {
+  grid-template-columns: repeat(2, 300px);
+}
+
+
+

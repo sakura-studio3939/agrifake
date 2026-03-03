@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- ========== Meta ========== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あぐりふぇいく | 採用情報</title>
+
+    <!-- ========== CSS ========== -->
+    <!-- ===== Reset CSS ===== -->
+    <link rel="stylesheet" th:href="@{/user/css/reset.css}">
+    <!-- ===== Common CSS　 ===== -->
+    <link rel="stylesheet" th:href="@{/user/css/header.css}">
+    <link rel="stylesheet" th:href="@{/user/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/common/css/form-modal.css}">
+    <!-- ===== RecruitPage CSS　 ===== -->
+    <link rel="stylesheet" th:href="@{/user/css/recruit.css}">
+  </head>
+
+  <body>
+    <!-- ========== ヘッダー ========== -->
+    <!-- <div id="header"></div> -->
+    <div th:replace="~{user/components/header :: header}"></div>
+
+
+    <main>
+      <!-- ========== 募集要項イントロ ========== -->
+      <section class="recruit-intro">
+        <header class="headline">
+          <h2 class="headline__text">募集要項</h2>
+        </header>
+
+        <div class="intro-group">
+          <p class="intro-text">
+            私たちは人とのつながりを大切にしています。<br>
+            仕事内容や働き方について、<br>
+            どんなことでもお気軽にお問い合わせください。
+          </p>
+        </div>
+      </section>
+
+
+      <!-- ========== 募集要項一覧 ========== -->
+      <section class="recruit-job-description-list">
+        <header class="headline">
+          <h2 class="headline__text">募集要項一覧</h2>
+        </header>
+
+        <div id="job-description-table"></div>
+      </section>
+
+
+      <!-- ========== 応募フォーム ========== -->
+      <section class="recruit-entry-form">
+        <header class="headline">
+          <h2 class="headline__text">応募フォーム</h2>
+        </header>
+
+        <!-- ===== 応募フォームイントロ ===== -->
+        <div class="intro-group">
+          <p class="intro-text">
+            Web応募が難しい場合は、<br>
+            お電話にてご連絡のうえ、履歴書を紙でご持参いただくことも可能です。<br>
+            お気軽にお問い合わせください。
+          </p>
+        </div>
+
+        <form class="entry-form-group" id="entry-form"
+              th:action="@{/recruit}"
+              th:object="${recruitApplicationDto}"
+              method="post"
+              enctype="multipart/form-data">
+          <div>
+            <label for="name">お名前<span class="form-required">必須</span></label>
+            <input type="text" id="name" th:field="*{name}" required data-label="お名前">
+          </div>
+          <div>
+            <label for="phone">電話番号</label>
+            <input type="tel" id="phone" th:field="*{phone}" data-label="電話番号">
+          </div>
+          <div>
+            <label for="email">メールアドレス<span class="form-required">必須</span></label>
+            <input type="email" id="email" th:field="*{email}" required data-label="メールアドレス">
+          </div>
+          <div>
+            <label for="note">備考</label>
+            <textarea rows="3" id="note" th:field="*{note}" data-label="備考"></textarea>
+          </div>
+          <div>
+            <label for="resume">履歴書<span class="form-required">必須</span></label><br>
+            <span>※ PDF または Word 形式のファイルを添付してください</span><br>
+            <input type="file" id="resume" th:field="*{resume}" accept=".pdf,.doc,.docx" required data-label="履歴書">
+          </div>
+          <div>
+            <label for="career_history">職務経歴書</label><br>
+            <span>※ PDF または Word 形式のファイルを添付してください</span><br>
+            <input type="file" id="career_history" th:field="*{careerHistory}" accept=".pdf,.doc,.docx" data-label="職務経歴書">
+          </div>
+
+          <button class="submit-btn" type="submit" id="openComfirmBtn">送信</button>
+        </form>
+
+        <!-- ---------- 送信確認モーダル ---------- -->
+        <div th:replace="~{common/components/form-modal/confirm.html :: confirm(
+          ${confirm.title},
+          ${confirm.message},
+          ${confirm.cancelLabel},
+          ${confirm.submitLabel}
+        )}"></div>
+
+        <!-- ---------- 完了モーダル ---------- -->
+        <div th:replace="common/components/form-modal/complete :: completeModalFragment"></div>
+      </section>
+    </main>
+
+
+    <!-- ========== フッター ========== -->
+    <div th:replace="~{user/components/footer :: footer}"></div>
+
+    <!-- ========== JavaScript ========== -->
+    <!-- ===== Common Script ===== -->
+    <script type="module" th:src="@{/user/js/header.js}"></script>
+    <!-- ===== RecruitPage Script ===== -->
+    <script type="module" th:src="@{/user/js/recruit.js}"></script>
+  </body>
+</html>

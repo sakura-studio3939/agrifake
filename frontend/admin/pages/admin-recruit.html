@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- ========== Meta ========== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あぐりふぇいく | 管理_採用情報</title>
+
+    <!-- ========== CSS ========== -->
+    <!-- ===== Reset CSS ===== -->
+    <link rel="stylesheet" th:href="@{/admin/css/admin-reset.css}">
+    <!-- ===== Common CSS　 ===== -->
+    <link rel="stylesheet" th:href="@{/admin/css/admin-sidebar.css}">
+    <!-- ===== AdminRecruit CSS　 ===== -->
+    <link rel="stylesheet" th:href="@{/admin/css/admin-recruit.css}">
+  </head>
+
+  <body>
+    <!-- ========== サイドバー ========== -->
+    <div th:replace="~{admin/components/admin-sidebar :: sidebar}"></div>
+
+
+    <main>
+      <!-- ========== 募集要項一覧 ========== -->
+      <section class="recruit-job-description-list">
+        <header class="headline">
+          <h2 class="headline__text">募集要項一覧</h2>
+        </header>
+
+        <!-- ===== 募集要項 ===== -->
+        <div id="job-description-table"></div>
+      </section>
+
+    </main>
+
+
+    <!-- ========== JavaScript ========== -->
+    <!-- ===== Common Script ===== -->
+    <script type="module" th:src="@{/admin/js/admin-sidebar.js}"></script>
+    <!-- ===== AdminRecruit Script ===== -->
+    <script type="module" th:src="@{/admin/js/admin-recruit.js}"></script>
+
+  </body>
+</html>
+
+
+
+

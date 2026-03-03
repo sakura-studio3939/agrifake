@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- ========== Meta ========== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あぐりふぇいく | TOP</title>
+
+    <!-- ========== CSS ========== -->
+    <!-- ===== Reset CSS ===== -->
+    <link rel="stylesheet" th:href="@{/user/css/reset.css}">
+    <!-- ===== Common CSS　 ===== -->
+    <link rel="stylesheet" th:href="@{/user/css/header.css}">
+    <link rel="stylesheet" th:href="@{/user/css/common.css}">
+    <link rel="stylesheet" th:href="@{/user/css/footer.css}">
+
+    <!-- ===== TopPage CSS ===== -->
+     <link rel="stylesheet" th:href="@{/user/css/top.css}">
+  </head>
+
+  <body>
+    <!-- ========== ヘッダー ========== -->
+    <div th:replace="~{user/components/header :: header}"></div>
+
+
+    <main>
+      <!-- ========== ヒーロー画像 ========== -->
+      <section class="hero">
+        <img class="hero-image" id="hero-slideshow" th:src="@{/user/images/top/hero_spring_rice_paddy.png}" alt="ヒーロー画像">
+      </section>
+
+
+      <!-- ========== 農業理念 ========== -->
+      <section class="top-philosophy">
+        <header class="headline">
+          <h2 class="headline__text">暮らしに寄り添う、野菜作りを</h2>
+        </header>
+
+        <div class="philosophy__list">
+          <div class="philosophy__card">
+            <div class="philosophy__image">
+              <img th:src="@{/user/images/top/philosophy_snowmelt_water.png}" alt="ミネラルを多く含んだ雪解け水">
+            </div>
+            <div class="philosophy__content">
+              <h3 class="philosophy__title">自然の恵み</h3>
+              <p class="philosophy__description">
+                山に降り積もった雪が、ゆっくりと水へと変わり、<br>
+                大地を潤し、命を育てていく。<br>
+                その自然の循環の中で、私たちは米や野菜を育てています。
+              </p>
+            </div>
+          </div>
+          <div class="philosophy__card philosophy__card--reverse">
+            <div class="philosophy__image">
+              <img th:src="@{/user/images/top/philosophy_table_vegetables.png}" alt="新鮮な野菜">
+            </div>
+            <div class="philosophy__content philosophy__content--reverse">
+              <h3 class="philosophy__title">新鮮な野菜を食卓へ</h3>
+              <p class="philosophy__description">
+                畑と食卓を、まっすぐにつなぐ。<br>
+                新鮮な野菜を通して、<br>
+                自然の恵みを感じられる食の時間を届けたいと考えています。
+              </p>
+            </div>
+          </div>
+          <div class="philosophy__card">
+            <div class="philosophy__image">
+              <img th:src="@{/user/images/top/philosophy_tractor_plowing_field.png}" alt="田んぼの整備をする光景">
+            </div>
+            <div class="philosophy__content">
+              <h3 class="philosophy__title">農業を、もっと身近に</h3>
+              <p class="philosophy__description">
+                農業の魅力を伝え、<br>
+                人と農業の距離を少しずつ近づけていく。<br>
+                その積み重ねが、農業の未来につながると信じています。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ========== 生産物 ========== -->
+      <section class="top-product">
+        <header class="headline">
+          <h2 class="headline__text">農作物</h2>
+        </header>
+
+        <!-- ===== 農作物一覧 ===== -->
+        <div class="product__group product__group--fresh">
+          <div class="product__list">
+            <div class="product__card">
+              <div class="product__card-image">
+                <img th:src="@{/user/images/top/product_fresh_produce_cabbage.jpg}" alt="キャベツ">
+              </div>
+              <h3 class="product__card--title">キャベツ</h3>
+            </div>
+            <div class="product__card">
+              <div class="product__card-image">
+                <img th:src="@{/user/images/top/product_fresh_produce_onion.jpg}" alt="玉ねぎ">
+              </div>
+              <h3 class="product__card--title">玉ねぎ</h3>
+            </div>
+            <div class="product__card">
+              <div class="product__card-image">
+                <img th:src="@{/user/images/top/product_fresh_produce_potato.jpg}" alt="ジャガイモ">
+              </div>
+              <h3 class="product__card--title">ジャガイモ</h3>
+            </div>
+            <div class="product__card">
+              <div class="product__card-image">
+                <img th:src="@{/user/images/top/product_fresh_produce_tomato.jpg}" alt="トマト">
+              </div>
+              <h3 class="product__card--title">トマト</h3>
+            </div>
+            <div class="product__card">
+              <div class="product__card-image">
+                <img th:src="@{user/images/top/product_fresh_produce_rice.jpg}" alt="米">
+              </div>
+              <h3 class="product__card--title">米</h3>
+            </div>
+            <div class="product__card">
+              <div class="product__card-image">
+                <img th:src="@{/user/images/top/product_fresh_produce_wheat.jpg}" alt="小麦">
+              </div>
+              <h3 class="product__card--title">小麦</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== 加工品一覧 ===== -->
+        <div class="product__group product__group--processed">
+          <div class="product__list">
+            <div class="product__card">
+              <div class="product__card-image">
+                <img th:src="@{/user/images/top/product_processed_products_dressing.jpg}" alt="ドレッシング">
+              </div>
+              <h3 class="product__card--title">ドレッシング</h3>
+            </div>
+            <div class="product__card">
+              <div class="product__card-image">
+                <img th:src="@{/user/images/top/product_processed_products_jam.jpg}" alt="ジャム">
+              </div>
+              <h3 class="product__card--title">ジャム</h3>
+            </div>
+            <div class="product__card">
+              <div class="product__card-image">
+                <img th:src="@{/user/images/top/product_processed_products_juice.jpg}" alt="ジュース">
+              </div>
+              <h3 class="product__card--title">ジュース</h3>
+            </div>
+            <div class="product__card">
+              <div class="product__card-image">
+                <img th:src="@{/user/images/top/product_processed_products_rice_flour.jpg}" alt="米粉">
+              </div>
+              <h3 class="product__card--title">米粉</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ========== Instagram ========== -->
+      <section class="top-instagram">
+        <header class="headline">
+          <h2 class="headline__text">Instagram</h2>
+        </header>
+
+        <!-- ===== Instagram埋め込み ===== -->
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DUNWFU2jlQ6/" data-instgrm-version="14"></blockquote>
+        <script async src="//www.instagram.com/embed.js"></script>
+      </section>
+
+
+      <!-- ========== アクセス ========== -->
+      <section class="top_access">
+        <header class="headline">
+          <h2 class="headline__text">アクセス</h2>
+        </header>
+
+        <!-- ===== GoogleMap埋め込み ===== -->
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d487863.4566447803!2d137.04083154142586!3d36.55361717606998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff7f20918176af5%3A0x6d5abf97791f1de3!2z5a-M5bGx55yM5a-M5bGx5biC!5e0!3m2!1sja!2sjp!4v1769934805982!5m2!1sja!2sjp"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </section>
+    </main>
+
+
+    <!-- ========== フッター ========== -->
+    <div th:replace="~{user/components/footer :: footer}"></div>
+
+    <!-- ========== JavaScript ========== -->
+    <!-- ===== Common Script ===== -->
+    <script type="module" th:src="@{/user/js/header.js}"></script>
+    <!-- ===== RecruitPage Script ===== -->
+    <script type="module" th:src="@{/user/js/top.js}"></script>
+
+  </body>
+</html>

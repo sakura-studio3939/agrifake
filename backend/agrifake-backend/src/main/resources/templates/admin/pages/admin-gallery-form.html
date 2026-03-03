@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- ========== Meta ========== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あぐりふぇいく | 管理_ギャラリー新規作成/編集</title>
+
+    <!-- ========== CSS ========== -->
+    <!-- ===== Reset CSS ===== -->
+    <link rel="stylesheet" th:href="@{/admin/css/admin-reset.css}">
+    <!-- ===== Common CSS　 ===== -->
+    <link rel="stylesheet" th:href="@{/admin/css/admin-sidebar.css}">
+    <link rel="stylesheet" th:href="@{/common/css/form-modal.css}">
+    <!-- ===== AdminGalleryForm CSS　 ===== -->
+    <link rel="stylesheet" th:href="@{/admin/css/admin-gallery-form.css}">
+  </head>
+
+  <body>
+    <!-- ========== サイドバー ========== -->
+    <div th:replace="~{admin/components/admin-sidebar :: sidebar}"></div>
+
+
+    <main>
+      <!-- ========== ギャラリー投稿フォーム ========== -->
+      <section>
+        <header class="headline">
+          <h2 class="headline__text">新規作成/編集</h2>
+        </header>
+
+        <!-- ===== フォーム ===== -->
+        <div class="gallery-group">
+          <form id="gallery-form">
+
+            <div class="gallery-item">
+              <label>カテゴリー<span class="form-required">必須</span></label><!-- バリデーションチェックはJSで独立処理 -->
+              <label><input type="radio" name="category" value="FRESHPRODUCE" required data-label="カテゴリー">農作物</label>
+              <label><input type="radio" name="category" value="PROCESSEDPRODUCTS">加工品</label>
+            </div>
+
+            <div class="gallery-item">
+              <label>タイトル<span class="form-required">必須</span></label>
+              <input type="text" name="title" id="title" required data-label="タイトル">
+            </div>
+
+            <div class="gallery-item">
+              <label>詳細<span class="form-required">必須</span></label>
+              <textarea name="description" id="description" rows="4" required data-label="詳細"></textarea>
+            </div>
+
+            <div class="gallery-item">
+              <label>一覧用画像<span class="form-required">必須</span></label>
+              <input type="file" name="thumbnailImage" id="thumbnailImage" accept="image/*" required data-label="一覧用画像">
+            </div>
+
+            <div class="gallery-item">
+              <label>詳細用画像</label>
+              <input type="file" name="detailImage" id="detailImage" accept="image/*"  data-label="詳細用画像">
+            </div>
+
+            <button class="submit-btn" type="submit">送信</button>
+          </form>
+        </div>
+
+        <!-- ---------- 送信確認モーダル ---------- -->
+        <div id="confirm-modal"></div>
+
+        <!-- ---------- 完了モーダル ---------- -->
+        <div id="complete-modal"></div>
+
+      </section>
+    </main>
+
+    <!-- ========== JavaScript ========== -->
+    <!-- ===== Common Script ===== -->
+    <script type="module" th:src="@{/admin/js/admin-sidebar.js}"></script>
+    <!-- ===== AdminGalleryForm Script ===== -->
+    <script type="module" th:src="@{/admin/js/admin-gallery-form.js}"></script>
+
+  </body>
+</html>
+
+

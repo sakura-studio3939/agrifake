@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.thymeleaf.org">
+  <head>
+    <!-- ========== Meta ========== -->
+    <meta charset="UTF-8">
+    <title>送信完了</title>
+    <!-- ========== CSS ========== -->
+     <!-- ===== Common CSS　 ===== -->
+    <link rel="stylesheet" href="@{/common/css/common.css}">
+     <!-- ===== Common CSS　 ===== -->
+    <!-- <link rel="stylesheet" href="@{/common/css/common.css}"> -->
+  </head>
+  <body>
+    <!-- ========== 完了モーダル（フラグメント） ========== -->
+    <div th:fragment="completeModalFragment">
+      <div id="complete_modal" class="modal hidden">
+        <div class="modal-group">
+          <h3 class="complete-title"></h3>
+          <p class="complete-message"></p>
+
+          <div class="modal-buttons">
+            <button type="button" id="completeCloseBtn" class="modal-close-btn">閉じる</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

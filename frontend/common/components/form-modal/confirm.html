@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- ========== Meta ========== -->
+    <meta charset="UTF-8">
+    <title>送信確認</title>
+    <!-- ========== CSS ========== -->
+     <!-- ===== Common CSS　 ===== -->
+    <link rel="stylesheet" href="@{/common/css/common.css}">
+  </head>
+  <body>
+    <!-- ========== 確認モーダル ========== -->
+    <div th:fragment="confirm(title, message, cancelLabel, confirmLabel)">
+      <div id="confirm_modal" class="modal hidden">
+        <div class="modal-group">
+
+          <h3 class="confirm-title" th:text="${title}"><!-- モーダルタイトル --></h3>
+          <p class="confirm-message" th:text="${message}"><!-- モーダルメッセージ --></p>
+
+          <div id="confirmBody"></div>
+
+          <div class="modal-buttons">
+            <button type="button" id="cancel-btn" th:text="${cancelLabel}" class="modal-back-btn">戻る</button>
+            <button type="button" id="confirmSendBtn" th:text="${confirmLabel}" class="modal-confirm-btn">送信</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
+

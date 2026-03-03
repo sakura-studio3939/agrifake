@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- ========== Meta ========== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あぐりふぇいく | お問い合わせ</title>
+
+    <!-- ========== CSS ========== -->
+    <!-- ===== Reset CSS ===== -->
+    <link rel="stylesheet" th:href="@{/user/css/reset.css}">
+    <!-- ===== Common CSS　 ===== -->
+    <link rel="stylesheet" th:href="@{/user/css/header.css}">
+    <link rel="stylesheet" th:href="@{/user/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/common/css/form-modal.css}">
+    <!-- ===== ContactPage CSS　 ===== -->
+     <link rel="stylesheet" th:href="@{/user/css/contact.css}">
+  </head>
+
+  <body>
+    <!-- ========== ヘッダー ========== -->
+    <div th:replace="~{user/components/header :: header}"></div>
+
+
+    <main>
+      <!-- ========== お問い合わせイントロ ========== -->
+      <section class="contact-intro">
+        <header class="headline">
+          <h2 class="headline__text">お問い合わせ</h2>
+        </header>
+
+        <div class="intro-group">
+          <p class="intro-text">
+            気になることがありましたら、<br>
+            どんな小さなことでも構いません。<br>
+            お気軽にお問い合わせください。
+          </p>
+        </div>
+      </section>
+
+
+      <!-- ========== お問い合わせフォーム ========== -->
+      <section class="contact-form">
+        <header class="headline">
+          <h2 class="headline__text">お問い合わせフォーム</h2>
+        </header>
+
+        <form class="contact-form-group" id="contact-form"
+              th:action="@{/contact}"
+              th:object="${contactFormDto}"
+              method="post"
+              enctype="multipart/form-data">
+          <div>
+            <label for="name">お名前<span class="form-required">必須</span></label>
+            <input type="text" id="name" th:field="*{name}" required data-label="お名前">
+          </div>
+          <div>
+            <label for="phone">電話番号</label>
+            <input type="tel" id="phone" th:field="*{phone}" data-label="電話番号">
+          </div>
+          <div>
+            <label for="email">メールアドレス<span class="form-required">必須</span></label>
+            <input type="email" id="email" th:field="*{email}" required data-label="メールアドレス">
+          </div>
+          <div>
+            <label for="contact-message">お問い合わせ内容<span class="form-required">必須</span></label>
+            <textarea id="contact-message" th:field="*{contactMessage}" rows="4" required data-label="お問い合わせ内容"></textarea>
+          </div>
+
+          <button class="submit-btn" type="submit" id="openComfirmBtn">送信</button>
+        </form>
+
+        <!-- ---------- 送信確認モーダル ---------- -->
+        <div th:replace="~{common/components/form-modal/confirm.html :: confirm(
+          ${confirm.title},
+          ${confirm.message},
+          ${confirm.cancelLabel},
+          ${confirm.submitLabel}
+        )}"></div>
+
+        <!-- ---------- 完了モーダル ---------- -->
+        <div th:replace="common/components/form-modal/complete :: completeModalFragment"></div>
+
+      </section>
+    </main>
+
+
+
+    <!-- ========== フッター ========== -->
+    <div th:replace="~{user/components/footer :: footer}"></div>
+
+    <!-- ========== JavaScript ========== -->
+    <!-- ===== Common Script ===== -->
+    <script type="module" th:src="@{/user/js/header.js}"></script>
+    <!-- ===== ContactPage Script ===== -->
+    <script type="module" th:src="@{/user/js/contact.js}"></script>
+
+  </body>
+</html>

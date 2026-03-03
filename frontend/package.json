@@ -1,0 +1,20 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "copy:admin": "mkdir ..\\backend\\agrifake-backend\\src\\main\\resources\\static\\admin 2>nul && mkdir ..\\backend\\agrifake-backend\\src\\main\\resources\\templates\\admin\\components 2>nul && mkdir ..\\backend\\agrifake-backend\\src\\main\\resources\\templates\\admin\\pages 2>nul && xcopy frontend\\admin\\assets ..\\backend\\agrifake-backend\\src\\main\\resources\\static\\admin /E /I /Y && xcopy frontend\\admin\\components ..\\backend\\agrifake-backend\\src\\main\\resources\\templates\\admin\\components /E /I /Y && xcopy frontend\\admin\\pages ..\\backend\\agrifake-backend\\src\\main\\resources\\templates\\admin\\pages /E /I /Y",
+    "copy:common": "mkdir ..\\backend\\agrifake-backend\\src\\main\\resources\\static\\common 2>nul && mkdir ..\\backend\\agrifake-backend\\src\\main\\resources\\templates\\common\\components 2>nul && mkdir ..\\backend\\agrifake-backend\\src\\main\\resources\\templates\\common\\pages 2>nul && xcopy frontend\\common\\assets ..\\backend\\agrifake-backend\\src\\main\\resources\\static\\common /E /I /Y && xcopy frontend\\common\\components ..\\backend\\agrifake-backend\\src\\main\\resources\\templates\\common\\components /E /I /Y && xcopy frontend\\common\\pages ..\\backend\\agrifake-backend\\src\\main\\resources\\templates\\common\\pages /E /I /Y",
+    "copy:user": "mkdir ..\\backend\\agrifake-backend\\src\\main\\resources\\static\\user 2>nul && mkdir ..\\backend\\agrifake-backend\\src\\main\\resources\\templates\\user\\components 2>nul && mkdir ..\\backend\\agrifake-backend\\src\\main\\resources\\templates\\user\\pages 2>nul && xcopy frontend\\user\\assets ..\\backend\\agrifake-backend\\src\\main\\resources\\static\\user /E /I /Y && xcopy frontend\\user\\components ..\\backend\\agrifake-backend\\src\\main\\resources\\templates\\user\\components /E /I /Y && xcopy frontend\\user\\pages ..\\backend\\agrifake-backend\\src\\main\\resources\\templates\\user\\pages /E /I /Y",
+    "copy:all": "npm run copy:admin && npm run copy:common && npm run copy:user",
+    "watch": "npx chokidar \"frontend/**/*\" -c \"npm run copy:all\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "eslint": "^9.39.2"
+  }
+}

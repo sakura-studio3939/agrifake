@@ -1,0 +1,36 @@
+<!-- ========== Header Component ========== -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <header class="site-header" th:fragment="header">
+      <div class="header__block">
+        <h1 class="header__company_name">
+          <a th:href="@{/top}">あぐりふぇいく</a>
+        </h1>
+      </div>
+
+      <!-- ===== ハンバーガーメニュー ===== -->
+      <button class="hamburger-menu" id="hamburger-menu">
+      <!-- === アイコン用 === -->
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- ===== ナビゲーションバー ===== -->
+      <nav id="nav__bar">
+        <ul class="nav__list">
+          <li class="nav__item"><a th:href="@{/top}">TOP</a></li>
+          <li class="nav__item"><a th:href="@{/company}">企業概要</a></li>
+          <li class="nav__item"><a th:href="@{/gallery}">ギャラリー</a></li>
+          <li class="nav__item"><a th:href="@{/recruit}">採用情報</a></li>
+          <li class="nav__item"><a th:href="@{/contact}">お問い合わせ</a></li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <!-- ===== ナビゲーションバー展開時 ===== -->
+    <div class="nav__bar--overlay" id="nav__bar--overlay"></div>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- ========== Meta ========== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あぐりふぇいく | 管理_ギャラリー</title>
+
+    <!-- ========== CSS ========== -->
+    <!-- ===== Reset CSS ===== -->
+    <link rel="stylesheet" th:href="@{/admin/css/admin-reset.css}">
+    <!-- ===== Common CSS　 ===== -->
+    <link rel="stylesheet" th:href="@{/admin/css/admin-sidebar.css}">
+    <!-- ===== AdminGallery CSS　 ===== -->
+    <link rel="stylesheet" th:href="@{/admin/css/admin-gallery.css}">
+  </head>
+  <body>
+    <!-- ========== サイドバー ========== -->
+    <div th:replace="~{admin/components/admin-sidebar :: sidebar}"></div>
+
+
+    <main>
+      <!-- ========== ギャラリー ========== -->
+      <section class="gallery-product">
+        <header class="headline">
+          <h2 class="headline__text">ギャラリー</h2>
+        </header>
+
+        <!-- ===== 農作物リスト===== -->
+         <div class="gallery__group gallery__group--fresh-produce">
+          <h3 class="gallery__title">農作物</h3>
+          <ul id="freshProduceList" class="gallery__list gallery__list--fresh-produce"></ul>
+         </div>
+
+        <!-- ===== 加工品リスト ===== -->
+        <div class="gallery__group gallery__group--processed-products">
+          <h3 class="gallery__title">加工品</h3>
+          <ul id="processedProductsList" class="gallery__list gallery__list--processed-products"></ul>
+        </div>
+
+        <!-- ---------- 生産物モーダル ---------- -->
+        <div id="product_modal" class="modal hidden">
+          <div class="modal__overlay"></div>
+          <div class="modal__group">
+            <img id="modalProductImage" class="modal__image" alt="">
+            <h4 id="modalProductLabel" class="modal__label"></h4>
+            <p id="modalProductDescription" class="modal__description"></p>
+            <p>作成日:<span id="modalProductCreatedAt" class="modal__createdat"></span></p>
+            <p>更新日:<span id="modalProductUpdatedAt" class="modal__updatedat"></span></p>
+
+            <button id="modalProductClose" class="modal__close"><p class="closeBtnText">×</p></button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== JavaScript ========== -->
+    <!-- ===== Common Script ===== -->
+    <script type="module" th:src="@{/admin/js/admin-sidebar.js}"></script>
+    <!-- ===== AdminGallery Script ===== -->
+    <script type="module" th:src="@{/admin/js/admin-gallery-form.js}"></script>
+    <!-- ===== GalleryData Script ===== -->
+    <script type="module" th:src="@{/common/js/products.js}"></script>
+  </body>
+</html>

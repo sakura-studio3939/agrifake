@@ -1,0 +1,5 @@
+/* 表示中のページリンク無効化 */
+.is-current {
+  pointer-events: none; /* クリック不可 */
+  cursor: default;
+}
