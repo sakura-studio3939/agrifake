@@ -34,4 +34,7 @@
   border-radius: 8px;
 }
 
-
+/* 非公開のサムネ画像を暗くする */
+.gallery-thumb[data-published="false"] {
+  filter: brightness(50%);
+}

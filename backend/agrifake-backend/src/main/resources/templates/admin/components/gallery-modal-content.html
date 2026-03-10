@@ -1,0 +1,18 @@
+<!-- ========== ギャラリー内容 ========== -->
+<div th:fragment="content">
+  <img id="detailImage" alt="詳細画像"><!-- 詳細画像 -->
+  <h4 id="modalTitle"><!-- タイトル --></h4>
+  <p id="modalDescription"><!-- 詳細 --></p>
+  <p id="createdAt"><!-- 作成日時 --></p>
+  <p id="updatedAt"><!-- 更新日時 --></p>
+
+  <a id="editBtn" class="edit-btn" href="#">編集</a>
+  <button id="publishBtn"></button>
+
+  <form id="deleteForm" method="post">
+    <input type="hidden"
+      th:name="${_csrf.parameterName}"
+      th:value="${_csrf.token}" />
+    <button type="submit" class="delete-btn">削除</button>
+  </form>
+</div>

@@ -1,0 +1,13 @@
+<!-- ========== ギャラリーモーダル ========== -->
+<div th:fragment="modal">
+  <div id="galleryModal" class="modal hidden">
+    <div class="gallery-content">
+
+      <!-- 引数 -->
+      <div th:replace="${contentFragment}"></div>
+
+      <button class="close-btn" onclick="closeModal()">閉じる</button>
+    </div>
+  </div>
+</div>
+

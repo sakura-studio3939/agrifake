@@ -30,32 +30,49 @@
 
         <!-- ===== フォーム ===== -->
         <div class="gallery-group">
-          <form id="gallery-form">
+          <!-- AdminGalleryControllerで新規作成 or 編集フラグを作成 -->
+          <form th:action="${isEdit} ? @{/admin/gallery/edit/{id}(id=${gallery.id})} : @{/admin/gallery/create}"
+                th:object="${gallery}"
+                method="post"
+                enctype="multipart/form-data"
+                id="gallery-form">
+
+            <input type="hidden" th:field="*{id}" />
 
             <div class="gallery-item">
               <label>カテゴリー<span class="form-required">必須</span></label><!-- バリデーションチェックはJSで独立処理 -->
-              <label><input type="radio" name="category" value="FRESHPRODUCE" required data-label="カテゴリー">農作物</label>
-              <label><input type="radio" name="category" value="PROCESSEDPRODUCTS">加工品</label>
+              <label><input type="radio" th:field="*{category}" value="FRESH_PRODUCE" required data-label="カテゴリー">農作物</label>
+              <label><input type="radio" th:field="*{category}" value="PROCESSED_PRODUCTS">加工品</label>
             </div>
 
             <div class="gallery-item">
-              <label>タイトル<span class="form-required">必須</span></label>
-              <input type="text" name="title" id="title" required data-label="タイトル">
+              <label for="title">タイトル<span class="form-required">必須</span></label>
+              <input type="text" th:field="*{title}" id="title" required data-label="タイトル">
             </div>
 
             <div class="gallery-item">
-              <label>詳細<span class="form-required">必須</span></label>
-              <textarea name="description" id="description" rows="4" required data-label="詳細"></textarea>
+              <label for="description">詳細<span class="form-required">必須</span></label>
+              <textarea th:field="*{description}" id="description" rows="4" required data-label="詳細"></textarea>
             </div>
 
             <div class="gallery-item">
-              <label>一覧用画像<span class="form-required">必須</span></label>
-              <input type="file" name="thumbnailImage" id="thumbnailImage" accept="image/*" required data-label="一覧用画像">
+              <label for="thumbnailImage">一覧用画像<span class="form-required">必須</span></label>
+              <input type="file" th:field="*{thumbnailImage}" id="thumbnailImage" accept="image/*" required data-label="一覧用画像">
+            </div>
+            <!-- サムネ画像プレビュー（編集時のみ） -->
+            <div th:if="${gallery.thumbnailPreview != null}">
+              <p>現在の画像:</p>
+              <img th:src="@{${gallery.thumbnailPreview}}" alt="サムネ画像" style="max-width:200px; margin-top:5px;">
             </div>
 
             <div class="gallery-item">
-              <label>詳細用画像</label>
-              <input type="file" name="detailImage" id="detailImage" accept="image/*"  data-label="詳細用画像">
+              <label for="detailImage">詳細用画像</label>
+              <input type="file" th:field="*{detailImage}" id="detailImage" accept="image/*"  data-label="詳細用画像">
+            </div>
+            <!-- 詳細画像プレビュー（編集時のみ） -->
+            <div th:if="${gallery.detailPreview != null}">
+              <p>現在の画像:</p>
+              <img th:src="@{${gallery.detailPreview}}" alt="詳細画像" style="max-width:200px; margin-top:5px;">
             </div>
 
             <button class="submit-btn" type="submit">送信</button>
@@ -63,10 +80,10 @@
         </div>
 
         <!-- ---------- 送信確認モーダル ---------- -->
-        <div id="confirm-modal"></div>
+        <!-- <div id="confirm-modal"></div> -->
 
         <!-- ---------- 完了モーダル ---------- -->
-        <div id="complete-modal"></div>
+        <!-- <div id="complete-modal"></div> -->
 
       </section>
     </main>
@@ -79,5 +96,4 @@
 
   </body>
 </html>
-
 

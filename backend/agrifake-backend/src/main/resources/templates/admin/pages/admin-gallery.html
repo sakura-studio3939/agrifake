@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>あぐりふぇいく | 管理_ギャラリー</title>
+    <!-- ========== CSRF トークン ========== -->
+    <meta name="_csrf" th:content="${_csrf.token}" />
+    <meta name="_csrf_header" th:content="${_csrf.headerName}" />
 
     <!-- ========== CSS ========== -->
     <!-- ===== Reset CSS ===== -->
@@ -27,30 +30,21 @@
         </header>
 
         <!-- ===== 農作物リスト===== -->
-         <div class="gallery__group gallery__group--fresh-produce">
+        <div class="gallery__group gallery__group--fresh-produce">
           <h3 class="gallery__title">農作物</h3>
-          <ul id="freshProduceList" class="gallery__list gallery__list--fresh-produce"></ul>
-         </div>
+          <div th:replace="~{admin/components//gallery-grid :: gallery(items=${freshProduce})}"></div>
+        </div>
 
         <!-- ===== 加工品リスト ===== -->
         <div class="gallery__group gallery__group--processed-products">
           <h3 class="gallery__title">加工品</h3>
-          <ul id="processedProductsList" class="gallery__list gallery__list--processed-products"></ul>
+          <div th:replace="~{admin/components/gallery-grid :: gallery(items=${processedProducts})}"></div>
         </div>
 
-        <!-- ---------- 生産物モーダル ---------- -->
-        <div id="product_modal" class="modal hidden">
-          <div class="modal__overlay"></div>
-          <div class="modal__group">
-            <img id="modalProductImage" class="modal__image" alt="">
-            <h4 id="modalProductLabel" class="modal__label"></h4>
-            <p id="modalProductDescription" class="modal__description"></p>
-            <p>作成日:<span id="modalProductCreatedAt" class="modal__createdat"></span></p>
-            <p>更新日:<span id="modalProductUpdatedAt" class="modal__updatedat"></span></p>
+        <!-- ===== 詳細モーダル ===== -->
+        <div th:replace="~{common/components/gallery/gallery-modal :: modal(contentFragment=~{admin/components/gallery-modal-content :: content})}"></div>
 
-            <button id="modalProductClose" class="modal__close"><p class="closeBtnText">×</p></button>
-          </div>
-        </div>
+
       </section>
     </main>
 
@@ -58,8 +52,8 @@
     <!-- ===== Common Script ===== -->
     <script type="module" th:src="@{/admin/js/admin-sidebar.js}"></script>
     <!-- ===== AdminGallery Script ===== -->
-    <script type="module" th:src="@{/admin/js/admin-gallery-form.js}"></script>
-    <!-- ===== GalleryData Script ===== -->
-    <script type="module" th:src="@{/common/js/products.js}"></script>
+    <!-- <script type="module" th:src="@{/admin/js/admin-gallery.js}"></script> -->
+    <script th:src="@{/admin/js/admin-gallery-modal.js}"></script>
+    <script th:src="@{/common/js/gallery-modal.js}"></script>
   </body>
 </html>

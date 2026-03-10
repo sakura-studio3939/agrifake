@@ -1,3 +1,7 @@
+// ========== import ==========
+// ===== ギャラリー仮データの読み込み =====
+import { products } from '/common/js/products.js';
+
 // ===== ギャラリー表示処理 =====
 // DOM取得
 const freshProduceList = document.getElementById('freshProduceList');

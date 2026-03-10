@@ -1,8 +1,3 @@
-// ========== import ==========
-// ===== complete.html/confirm.htmlの差し込み =====
-import { loadFormModalComponents } from "../../../common/assets/js/form-modal-loader.js";
-// ===== complete.html/confirm.htmlの読み込み =====
-import { formModal } from "../../../common/assets/js/form-modal.js";
 
 
 // ========== HTML差し込み ==========

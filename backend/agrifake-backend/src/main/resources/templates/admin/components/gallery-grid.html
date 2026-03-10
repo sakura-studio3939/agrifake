@@ -1,0 +1,13 @@
+<!-- ========== ギャラリー一覧フラグメント ========== -->
+<div th:fragment="gallery(items)">
+  <div class="gallery-grid">
+    <div th:each="item : ${items}" class="gallery-item">
+      <img th:src="${item.thumbnailImage}"
+           class="gallery-thumb"
+           th:data-id="${item.id}"
+           th:data-published="${item.published}"
+           onclick="openModal(this)">
+    </div>
+  </div>
+</div>
+

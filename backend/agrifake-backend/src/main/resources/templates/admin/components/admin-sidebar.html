@@ -12,10 +12,10 @@
           <p>ギャラリー管理</p>
           <ul>
             <li class="nav__item">
-              <a th:href="@{/admin/admin-gallery.html}">ギャラリー</a>
+              <a th:href="@{/admin/gallery}">ギャラリー</a>
             </li>
             <li class="nav__item">
-              <a th:href="@{/admin/admin-gallery-form.html}">ギャラリー新規作成</a>
+              <a th:href="@{/admin/gallery/new}">ギャラリー新規作成</a>
             </li>
           </ul>
         </li>
@@ -33,7 +33,7 @@
         </li>
 
         <li class="nav__list nav__list--logout-button">
-          <p>ログアウト</p><!--うごかん-->
+          <p>ログアウト</p>
           <form th:action="@{/admin/logout}" method="post">
             <input type="hidden"
                   th:name="${_csrf.parameterName}"

@@ -33,7 +33,8 @@ public class SecurityConfig {
               "/api/recruitApplication",
               "/api/contact",
               "/admin/login",
-              "/api/admin/login"
+              "/api/admin/login",
+              "/uploads/**"   // アップロード画像公開）
           ).permitAll()
 
           // ===== 管理者専用 =====
@@ -55,7 +56,7 @@ public class SecurityConfig {
       // ===== ログアウト =====
       .logout(logout -> logout
           .logoutUrl("/admin/logout")
-          .logoutSuccessUrl("/")
+          .logoutSuccessUrl("/admin/login")
           .invalidateHttpSession(true)
           .deleteCookies("JSESSIONID")
       )
