@@ -1,6 +1,6 @@
-// ===== ヒーロー画像切り替え =====
+// ========= ヒーロー画像切り替え ==========
 
-//表示画像
+// ===== 表示画像 =====
 const heroImagePaths = [
   `/user/images/top/hero_spring_rice_paddy.png`,
   `/user/images/top/hero_daikon_radish_field.png`,
@@ -15,14 +15,14 @@ const heroSlideImages = document.getElementById("hero-slideshow");
 
 let currentImageIndex = 0;
 
-//画像事前読み込み
+// ===== 画像事前読み込み =====
 heroImagePaths.forEach((imagePath) => {
   const image = new Image();
   image.src = imagePath;
   heroImages.push(image);
 });
 
-//5秒おきに画像切り替え
+//5 ===== 秒おきに画像切り替え =====
 // ※ 現在は他セクション実装中のため一時停止
 // ※ デザイン確定後にフェード演出込みで再実装予定
 /*

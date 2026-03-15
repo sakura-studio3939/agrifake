@@ -6,19 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>あぐりふぇいく | ギャラリー</title>
 
+    <!-- ========== Google Fonts ========== -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+
     <!-- ========== CSS ========== -->
     <!-- ===== Reset CSS ===== -->
-    <link rel="stylesheet" th:href="@{/user/css/reset.css}">
+    <link rel="stylesheet" href="/user/assets/css/reset.css" th:href="@{/user/css/reset.css}">
     <!-- ===== Common CSS　 ===== -->
-    <link rel="stylesheet" th:href="@{/user/css/header.css}">
-    <link rel="stylesheet" th:href="@{/user/css/footer.css}">
+    <link rel="stylesheet" href="/user/assets/css/header.css" th:href="@{/user/css/header.css}">
+    <link rel="stylesheet" href="/user/assets/css/common.css" th:href="@{/user/css/common.css}">
+    <link rel="stylesheet" href="/user/assets/css/footer.css" th:href="@{/user/css/footer.css}">
     <!-- ===== GalleryPage CSS　 ===== -->
-    <link rel="stylesheet" th:href="@{/user/css/gallery.css}">
+    <link rel="stylesheet" href="/user/assets/css/gallery.css" th:href="@{/user/css/gallery.css}">
   </head>
 
   <body>
     <!-- ========== ヘッダー ========== -->
-    <div th:replace="~{user/components/header :: header}"></div>
+    <div id="header" th:replace="~{user/components/header :: header}"></div>
 
 
     <main>
@@ -48,16 +52,17 @@
 
 
     <!-- ========== フッター ========== -->
-    <div th:replace="~{user/components/footer :: footer}"></div>
+    <div id="footer" th:replace="~{user/components/footer :: footer}"></div>
 
 
     <!-- ========== JavaScript ========== -->
     <!-- ===== Common Script ===== -->
-    <script type="module" th:src="@{/user/js/header.js}"></script>
+    <script type="module" src="/user/assets/js/header.js" th:src="@{/user/js/header.js}"></script>
+    <script type="module" src="/user/assets/js/footer.js" th:src="@{/user/js/footer.js}"></script>
     <!-- ===== GalleryData Script ===== -->
-    <script type="module" th:src="@{/user/js/gallery.js}"></script>
-    <!-- ===== Gallery Script ===== -->
-    <script th:src="@{/common/js/gallery-modal.js}"></script>
+    <script type="module" src="/user/assets/js/gallery.js" th:src="@{/user/js/gallery.js}"></script>
+    <!-- ===== GalleryPage Script ===== -->
+    <script src="/common/assets/js/gallery-modal.js" th:src="@{/common/js/gallery-modal.js}"></script>
 
   </body>
 </html>

@@ -1,10 +1,29 @@
+/* ========== ヘッダーロゴ ========== */
+.header-logo {
+  font-family: "Playfair Display", serif;
+  font-weight:700;
+}
+
 /* ========== ヘッダー ========== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
 .site-header {
   display: flex;
   justify-content: space-between; /* ロゴとナビバーを両端に寄せる */
   align-items: center;
   padding: 0 5%;
   height: 90px;
+  background: #2F5D3A;
+  color: #fff;
+}
+
+.nav__item {
+  font-weight: 600;
 }
 
 .header__company_name {
@@ -23,6 +42,10 @@
 
 
 /* ========== ナビゲーションバー ==========  */
+.nav__bar--overlay {
+  position: fixed;
+}
+
 .nav__list {
   display: flex;
   gap: 24px;
@@ -31,6 +54,10 @@
 .nav__list a {
   white-space: nowrap; /* ナビリンクを改行させない */
   text-decoration: none;
+}
+
+.nav__item a {
+  font-family:"Playfair Display", serif;
 }
 
 .is-current {
@@ -66,7 +93,7 @@
     left: 0;
     width: 100%;
     height: 2.5px;
-    background: #000000;
+    background: #fff;
     transition: 0.3s;
   }
 
@@ -85,6 +112,10 @@
   }
 
   /* ===== ナビゲーションバー展開後 ===== */
+  .hamburger-menu.active span {
+    background: #444;
+  }
+
   /* 上線 */
   .hamburger-menu.active span:nth-child(1) {
     transform: rotate(45deg);
@@ -112,6 +143,7 @@
     z-index:100;
     background: rgb(255 255 255 / 80%);
     backdrop-filter: blur(10px);
+    color: #555;
   }
 
   #nav__bar.active {

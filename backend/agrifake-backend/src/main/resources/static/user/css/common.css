@@ -1,3 +1,21 @@
+/* ========== フォント ========== */
+:root{
+  /* ===== 環境対応 ===== */
+  /* ベースフォント（Google Fonts → Windows → macOS → Legacy Windows → 標準フォント） */
+  --font-base:"Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
+
+  /* ヘディングフォント */
+  --font-heading:"Noto Serif JP",serif;
+}
+
+body {
+  font-family: var(--font-base);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
 /* ========== ヘッドライン ========== */
 .headline {
   padding: 1rem 0;

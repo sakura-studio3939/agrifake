@@ -1,3 +1,27 @@
+// ========== ヘッダー初期化 ==========
+const loadHeader = () => {
+  disableCurrentLink();
+  setupHamburger();
+};
+
+// ========== LiveServer用header差し込み ==========
+const header = document.getElementById("header");
+
+if (header && header.children.length === 0) {
+  fetch("/user/components/header.html")
+    .then(res => res.text())
+    .then(html => {
+      header.innerHTML = html;
+
+      // ★ header挿入後に初期化
+      loadHeader();
+    });
+} else {
+  // ========== 初期実行 ==========
+  document.addEventListener("DOMContentLoaded", loadHeader);
+}
+
+
 // ========== 表示中のページリンク無効化 ==========
 const disableCurrentLink = () => {
   // URLの末尾からファイル名取得
@@ -19,11 +43,25 @@ const disableCurrentLink = () => {
 const setupHamburger = () => {
   const hamburgerMenu = document.getElementById("hamburger-menu");
   const navBar = document.getElementById("nav__bar");
-  const body = document.body;
   const navBarOverlay = document.getElementById("nav__bar--overlay");
+  const body = document.body;
 
-  if (!hamburgerMenu || !navBar) return;
+  console.log(hamburgerMenu);
+  console.log(navBar);
+  console.log(navBarOverlay);
 
+  if (!hamburgerMenu || !navBar || !navBarOverlay) return;
+
+  // ===== メニューを閉じる関数 =====
+  const closeMenu = () => {
+    navBar.classList.remove("active");
+    hamburgerMenu.classList.remove("active");
+    body.classList.remove("no-scroll");
+    navBarOverlay.classList.remove("active");
+    body.style.paddingRight = "";
+  };
+
+  // ===== ハンバーガークリック =====
   hamburgerMenu.addEventListener("click", () => {
     const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
 
@@ -32,25 +70,23 @@ const setupHamburger = () => {
     body.classList.toggle("no-scroll");
     navBarOverlay.classList.toggle("active");
 
-    // ===== スクロール無効時の画面のズレ防止 =====
-    if (document.body.classList.contains("no-scroll")) {
-      document.body.style.paddingRight = scrollBarWidth + "px";
+    // === スクロール無効時の画面のズレ防止 ===
+    if (body.classList.contains("no-scroll")) {
+      body.style.paddingRight = scrollBarWidth + "px";
     } else {
-      document.body.style.paddingRight = "";
+      body.style.paddingRight = "";
     }
   });
+
+  // ===== ESCキーで閉じる =====
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  // ===== overlayクリックで閉じる =====
+  navBarOverlay.addEventListener("click", closeMenu);
 };
 
-
-// ========== ヘッダー初期化 ==========
-const loadHeader =  () => {
-    // ----- 表示中のページリンク無効化 -----
-    disableCurrentLink();
-
-    // ----- ハンバーガーメニュー表示 -----
-    setupHamburger();
-};
-
-// ========== 初期実行 ==========
-document.addEventListener("DOMContentLoaded", loadHeader);
 
