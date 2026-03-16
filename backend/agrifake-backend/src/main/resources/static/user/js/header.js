@@ -46,10 +46,6 @@ const setupHamburger = () => {
   const navBarOverlay = document.getElementById("nav__bar--overlay");
   const body = document.body;
 
-  console.log(hamburgerMenu);
-  console.log(navBar);
-  console.log(navBarOverlay);
-
   if (!hamburgerMenu || !navBar || !navBarOverlay) return;
 
   // ===== メニューを閉じる関数 =====

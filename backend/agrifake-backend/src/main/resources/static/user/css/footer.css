@@ -1,31 +1,45 @@
 /* ========== フッター ========== */
 .site-footer {
+  margin-top: 64px;
   height: 240px;
+  background-color: #7B5E3D;
+  color: #fff;
 }
 
 
 .footer__block {
+  height: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
 }
 
-.footer__list {
-  padding: 0;
-  margin: 0;
+.footer__list li:first-child {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 /* 画像サイズ */
 .footer__image img {
-  max-width: 200px;
+  max-width: 250px;
 }
+
+
 
 
 /* ===========================
    レスポンシブ（～767px）
 =========================== */
-@media screen and (max-width: 767px) {
+@media (max-width: 767px) {
   /* ========== フッター ========== */
   .site-footer {
-    height: 180px;
+    height: 350px;
+  }
+
+  .footer__block {
+    flex-direction: column;
+    gap: 24px;
   }
 
 }
