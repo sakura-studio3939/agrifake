@@ -78,4 +78,4 @@ NotionURL:https://www.notion.so/31fa41d8965780e3b2e4f83762af2951?source=copy_lin
 ![SPトップ](docs/images/top-sp.jpeg)
 
 ### SP サイドバー表示
-![SPサイドバー](docs/images/top-sp-sidebar.jpg)
+![SPサイドバー](docs/images/top-sp-sidebar.png)
