@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="/user/assets/css/header.css" th:href="@{/user/css/header.css}">
     <link rel="stylesheet" href="/user/assets/css/common.css" th:href="@{/user/css/common.css}">
     <link rel="stylesheet" href="/user/assets/css/footer.css" th:href="@{/user/css/footer.css}">
+
+    <link rel="stylesheet" href="/common/assets/css/gallery-grid.css" th:href="@{/common/css/gallery-grid.css}">
     <!-- ===== GalleryPage CSS　 ===== -->
     <link rel="stylesheet" href="/user/assets/css/gallery.css" th:href="@{/user/css/gallery.css}">
   </head>
@@ -40,7 +42,7 @@
 
     <main>
       <!-- ========== ギャラリー ========== -->
-      <section class="gallery-product">
+      <section class="section gallery-product">
         <header class="headline">
           <h2 class="headline__text">ギャラリー</h2>
         </header>
@@ -48,13 +50,13 @@
         <!-- ===== 農作物リスト ===== -->
         <div class="gallery__group gallery__group--fresh-produce">
           <h3 class="gallery__title">農作物</h3>
-          <div th:replace="~{user/components//gallery-grid :: gallery(items=${freshProduce})}"></div>
+          <div class="products__list" id="freshProduceList" th:replace="~{user/components//gallery-grid :: gallery(items=${freshProduce})}"></div>
         </div>
 
         <!-- ===== 加工品リスト ===== -->
         <div class="gallery__group gallery__group--processed-products">
           <h3 class="gallery__title">加工品</h3>
-          <div th:replace="~{user/components/gallery-grid :: gallery(items=${processedProducts})}"></div>
+          <div class="products__list" id="processedProductsList" th:replace="~{user/components/gallery-grid :: gallery(items=${processedProducts})}"></div>
         </div>
 
         <!-- ===== 詳細モーダル ===== -->

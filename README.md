@@ -26,6 +26,7 @@ Thymeleaf
 Gmail SMTP（メール送信）
 Google Maps API（地図表示）
 Instagram Embed（投稿表示）
+SEO対策
 
 ## 主な機能
 **ユーザー側**

@@ -23,9 +23,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-.form-required {
-  color: #d32f2f;
-  font-size: 0.8em;
-  margin-left: 4px;
-}

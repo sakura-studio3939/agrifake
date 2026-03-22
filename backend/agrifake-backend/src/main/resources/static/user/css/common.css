@@ -16,13 +16,17 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
 }
 
+dt {
+  font-family: var(--font-heading);
+}
 
 h2 {
   font-size: 2.5rem;
 }
 
 h3 {
-  font-size: 2.2rem;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 h4 {
@@ -32,37 +36,97 @@ h4 {
 
 /* ========== ヘッドライン ========== */
 .headline {
-  padding: 4rem 0 3rem;
+  padding: 1rem 0 3rem;
   text-align: center;
 }
 
 .headline__text {
   display: inline-block;
   border-bottom: solid 1px #888;
-  padding: 0 3rem;
+  padding: 0 3rem; /* 下線用 */
 }
 
 
+/* ========== セクション ========== */
+.section {
+  padding: 4rem 3rem 1rem;
+}
+
+.hero {
+  padding: 0 0 1rem;
+}
+
+
+/* ========== イントロ ========== */
+/* max-widthはイントロごとに合わせる */
+.intro__group {
+  width: 100%;
+  margin: 0 auto 1rem;
+}
+
+/* ========== フォーム ========== */
+.form__label {
+  align-items: center;
+  font-weight: 500;
+}
+
+.form-required {
+  color: #d32f2f;
+  font-size: 0.8em;
+  margin-left: 0.3rem;
+}
+
+/* ========== ボタン ========== */
+/* 送信ボタン */
+.form-submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.submit-btn {
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+
+  background-color: #2e7d32;
+  color: #fff;
+
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
 
 /* ===========================
    レスポンシブ（～767px）
 =========================== */
 @media (max-width: 767px) {
   .headline {
-    padding: 2rem 0 1.5rem;
+    padding: 1rem 0 0.7rem;
   }
 
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   h4 {
-    font-size: 1rem;
+    font-size: 1.4rem;
+  }
+
+
+  /* ========== セクション ========== */
+  .section {
+    padding: 1.5rem 1rem 0.5rem;
+  }
+
+  .hero {
+    padding: 0 0 0.2rem;
   }
 
 }

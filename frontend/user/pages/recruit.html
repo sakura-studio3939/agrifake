@@ -36,31 +36,31 @@
 
   <body>
     <!-- ========== ヘッダー ========== -->
-    <!-- <div id="header"></div> -->
     <div id="header" th:replace="~{user/components/header :: header}"></div>
 
 
     <main>
       <!-- ========== 募集要項イントロ ========== -->
-      <section class="recruit-intro">
+      <section class="section recruit-intro">
         <header class="headline">
           <h2 class="headline__text">募集要項</h2>
         </header>
 
-        <div class="intro-group">
-          <p class="intro-text">
-            私たちは人とのつながりを大切にしています。<br>
-            仕事内容や働き方について、<br>
-            どんなことでもお気軽にお問い合わせください。
+        <div class="intro__group intro__group--recruit-list">
+          <p class="intro__text intro__text--recruit-list">
+            私たちは、人とのつながりを大切にし、チーム全体で支え合う文化を大事にしています。<br>
+            仕事内容や働き方について、分からないことや不安なことがあれば、どんな些細なことでもお気軽にお問い合わせください。<br>
+            皆さん一人ひとりの疑問や希望に真摯に向き合い、丁寧にお答えします。<br>
+            あなたのキャリアやライフスタイルに合った働き方を一緒に考えていきましょう。
           </p>
         </div>
       </section>
 
 
       <!-- ========== 募集要項一覧 ========== -->
-      <section class="recruit-job-description-list">
+      <section class="section recruit-job-description-list">
         <header class="headline">
-          <h2 class="headline__text">募集要項一覧</h2>
+          <h3 class="headline__text">募集要項一覧</h3>
         </header>
 
         <div id="job-description-table"></div>
@@ -68,17 +68,17 @@
 
 
       <!-- ========== 応募フォーム ========== -->
-      <section class="recruit-entry-form">
+      <section class="section recruit-entry-form">
         <header class="headline">
           <h2 class="headline__text">応募フォーム</h2>
         </header>
 
         <!-- ===== 応募フォームイントロ ===== -->
-        <div class="intro-group">
-          <p class="intro-text">
-            Web応募が難しい場合は、<br>
-            お電話にてご連絡のうえ、履歴書を紙でご持参いただくことも可能です。<br>
-            お気軽にお問い合わせください。
+        <div class="intro__group intro__group--entry-form">
+          <p class="intro__text intro__text--entry-form">
+            Webでの応募が難しい場合は、お電話にてご連絡のうえ、履歴書を紙でご持参いただくことも可能です。<br>
+            内容や提出方法について、不明な点やご不安な点があれば、どんなことでもお気軽にお問い合わせください。<br>
+            このフォームから送信された情報は、採用選考の目的のみに使用し、選考終了後は責任をもって適切に廃棄いたします。
           </p>
         </div>
 
@@ -87,34 +87,40 @@
               th:object="${recruitApplicationDto}"
               method="post"
               enctype="multipart/form-data">
-          <div>
-            <label for="name">お名前<span class="form-required">必須</span></label>
-            <input type="text" id="name" th:field="*{name}" required data-label="お名前">
+          <div class="recruit__form--row">
+            <label class="form__label recruit__form--label" for="name">お名前<span class="form-required">必須</span></label>
+            <input class="recruit__form--input" type="text" id="name" th:field="*{name}" required data-label="お名前">
           </div>
-          <div>
-            <label for="phone">電話番号</label>
-            <input type="tel" id="phone" th:field="*{phone}" data-label="電話番号">
+          <div class="recruit__form--row">
+            <label class="form__label recruit__form--label" for="phone">電話番号</label>
+            <input class="recruit__form--input" type="tel" id="phone" th:field="*{phone}" data-label="電話番号">
           </div>
-          <div>
-            <label for="email">メールアドレス<span class="form-required">必須</span></label>
-            <input type="email" id="email" th:field="*{email}" required data-label="メールアドレス">
+          <div class="recruit__form--row">
+            <label class="form__label recruit__form--label" for="email">メールアドレス<span class="form-required">必須</span></label>
+            <input class="recruit__form--input" type="email" id="email" th:field="*{email}" required data-label="メールアドレス">
           </div>
-          <div>
-            <label for="note">備考</label>
-            <textarea rows="3" id="note" th:field="*{note}" data-label="備考"></textarea>
+          <div class="recruit__form--row">
+            <label class="form__label recruit__form--label" for="note">備考</label>
+            <textarea class="recruit__form--input textarea-input" rows="10" id="note" th:field="*{note}" data-label="備考"></textarea>
           </div>
-          <div>
-            <label for="resume">履歴書<span class="form-required">必須</span></label><br>
-            <span>※ PDF または Word 形式のファイルを添付してください</span><br>
-            <input type="file" id="resume" th:field="*{resume}" accept=".pdf,.doc,.docx" required data-label="履歴書">
+          <div class="recruit__form--row">
+            <label class="form__label recruit__form--label" for="resume">履歴書<span class="form-required">必須</span></label>
+            <div class="recruit__form--file">
+              <span class="recruit__form--text">※ PDF または Word 形式のファイルを添付してください</span>
+              <input type="file" id="resume" th:field="*{resume}" accept=".pdf,.doc,.docx" required data-label="履歴書">
+            </div>
           </div>
-          <div>
-            <label for="career_history">職務経歴書</label><br>
-            <span>※ PDF または Word 形式のファイルを添付してください</span><br>
-            <input type="file" id="career_history" th:field="*{careerHistory}" accept=".pdf,.doc,.docx" data-label="職務経歴書">
+          <div class="recruit__form--row">
+            <label class="form__label recruit__form--label" for="career_history">職務経歴書</label>
+            <div class="recruit__form--file">
+              <span class="recruit__form--text">※ PDF または Word 形式のファイルを添付してください</span>
+              <input type="file" id="career_history" th:field="*{careerHistory}" accept=".pdf,.doc,.docx" data-label="職務経歴書">
+            </div>
           </div>
 
-          <button class="submit-btn" type="submit" id="openComfirmBtn">送信</button>
+          <div class="form-submit">
+            <button class="submit-btn" type="submit" id="openComfirmBtn">送信</button>
+          </div>
         </form>
 
         <!-- ---------- 送信確認モーダル ---------- -->
@@ -140,5 +146,6 @@
     <script type="module" src="/user/assets/js/footer.js" th:src="@{/user/js/footer.js}"></script>
     <!-- ===== RecruitPage Script ===== -->
     <script type="module" src="/user/assets/js/recruit.js" th:src="@{/user/js/recruit.js}"></script>
+    <script type="module" src="/common/assets/js/job-postings.js" th:src="@{/common/js/job-postings.js}"></script>
   </body>
 </html>

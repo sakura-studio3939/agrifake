@@ -14,10 +14,6 @@
 
 
 /* ========== 農場理念 ========== */
-.top-philosophy {
-  padding: 0 5%;
-}
-
 .philosophy__list {
   display: flex;
   flex-direction: column;
@@ -58,10 +54,6 @@
 }
 
 /* ========== 生産物 ========== */
-.top-product {
-  padding: 0 5%;
-}
-
 .product__title {
   padding: 0 0 1.5rem;
   text-align: center;
@@ -108,10 +100,6 @@
 }
 
 /* ========== GoogleMap ========== */
-.top_access {
-  padding: 0 5%;
-}
-
 .map-container {
   display: flex;
   max-width: 900px;

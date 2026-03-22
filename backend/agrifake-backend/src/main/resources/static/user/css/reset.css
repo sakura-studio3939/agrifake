@@ -34,3 +34,8 @@ a {
   color: inherit;
 }
 
+/* リストの余白削除 */
+dl, dt, dd {
+  margin: 0;
+  padding: 0;
+}

@@ -31,3 +31,62 @@ export const jobPostings = [
   }
 ]
 
+// ===== 募集要項描画処理 =====
+const renderJobPostings = (list, id) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (el.children.length > 0) return;
+
+  list.forEach(job => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'job-item';
+    wrapper.innerHTML = `
+      <table class="job-table">
+        <tbody>
+          <tr class="recruit__table-row">
+            <th class="recruit__table-cell recruit__table-cell--label">募集職種</th>
+            <td class="recruit__table-cell recruit__table-cell--value">${job.position}</td>
+          </tr>
+          <tr class="recruit__table-row">
+            <th class="recruit__table-cell recruit__table-cell--label">雇用形態</th>
+            <td class="recruit__table-cell recruit__table-cell--value">${job.employment_type}</td>
+          </tr>
+          <tr class="recruit__table-row">
+            <th class="recruit__table-cell recruit__table-cell--label">仕事内容</th>
+            <td class="recruit__table-cell recruit__table-cell--value">${job.job_description.replace(/\n/g,'<br>')}</td>
+          </tr>
+          <tr class="recruit__table-row">
+            <th class="recruit__table-cell recruit__table-cell--label">給与</th>
+            <td class="recruit__table-cell recruit__table-cell--value">${job.salary.replace(/\n/g,'<br>')}</td>
+          </tr>
+          <tr class="recruit__table-row">
+            <th class="recruit__table-cell recruit__table-cell--label">勤務地</th>
+            <td class="recruit__table-cell recruit__table-cell--value">${job.location}</td>
+          </tr>
+          <tr class="recruit__table-row">
+            <th class="recruit__table-cell recruit__table-cell--label">応募条件</th>
+            <td class="recruit__table-cell recruit__table-cell--value">${job.requirements.replace(/\n/g,'<br>')}</td>
+          </tr>
+          <tr class="recruit__table-row">
+            <th class="recruit__table-cell recruit__table-cell--label">勤務時間</th>
+            <td class="recruit__table-cell recruit__table-cell--value">${job.work_schedule.replace(/\n/g,'<br>')}</td>
+          </tr>
+          <tr class="recruit__table-row">
+            <th class="recruit__table-cell recruit__table-cell--label">待遇・福利厚生</th>
+            <td class="recruit__table-cell recruit__table-cell--value">${job.benefit.replace(/\n/g,'<br>')}</td>
+          </tr>
+          <tr class="recruit__table-row">
+            <th class="recruit__table-cell recruit__table-cell--label">備考</th>
+            <td class="recruit__table-cell recruit__table-cell--value">${job.notes.replace(/\n/g,'<br>')}</td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+    el.appendChild(wrapper);
+  });
+};
+
+// ===== DOMロード時に描画 =====
+document.addEventListener("DOMContentLoaded", () => {
+  renderJobPostings(jobPostings, 'job-description-table');
+});
