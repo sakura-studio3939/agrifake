@@ -1,4 +1,4 @@
-import { products } from '/js/products.js';
+import { products } from './js/products.js';
 
 window.openModal = function(img) {
   const id = img.dataset.id;
