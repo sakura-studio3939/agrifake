@@ -1,0 +1,56 @@
+/* ========== ギャラリー ========== */
+.gallery__group {
+  width: 40rem;
+  margin: 0 auto;
+}
+
+.gallery__group--processed-products {
+  margin-top: 2.5rem;
+}
+
+.gallery__title {
+  text-align: center;
+}
+
+
+/* ===== モーダル ===== */
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.modal__group {
+  position: relative;
+  background: #fff;
+  max-width: 600px;
+  margin: 10vh auto;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+
+/* ===========================
+   レスポンシブ（～767px）
+=========================== */
+@media (max-width: 767px) {
+
+  /* ========== ギャラリー ========== */
+  .gallery__group {
+    width: 20rem;
+  }
+
+  .gallery__group--processed-products {
+    margin-top: 2rem;
+  }
+}

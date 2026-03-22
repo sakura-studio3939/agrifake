@@ -1,0 +1,27 @@
+.products__list {
+  margin: 1rem 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  justify-items: center;
+}
+
+.gallery-thumb {
+  width: 10rem;
+  height: 10rem;
+
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ===========================
+   レスポンシブ（～767px）
+=========================== */
+@media (max-width: 767px) {
+  .gallery-thumb {
+    width: 5rem;
+    height: 5rem;
+  }
+}

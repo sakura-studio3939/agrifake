@@ -1,0 +1,188 @@
+/* ========== ヘッダーロゴ ========== */
+.header-logo {
+  font-family: "Playfair Display", serif;
+  font-weight:700;
+}
+
+/* ========== ヘッダー ========== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between; /* ロゴとナビバーを両端に寄せる */
+  align-items: center;
+  padding: 0 5%;
+  height: 90px;
+  background: #2F5D3A;
+  color: #fff;
+}
+
+.nav__item {
+  font-weight: 600;
+}
+
+.header__company_name {
+  white-space: nowrap;
+}
+
+.header__company_name a {
+  text-decoration: none;
+}
+
+
+/* ========== ハンバーガーメニュー ==========  */
+.hamburger-menu {
+  display: none;
+}
+
+
+/* ========== ナビゲーションバー ==========  */
+.nav__bar--overlay {
+  position: fixed;
+}
+
+.nav__list {
+  display: flex;
+  gap: 28px;
+}
+
+.nav__list a {
+  white-space: nowrap; /* ナビリンクを改行させない */
+  text-decoration: none;
+}
+
+.nav__item a {
+  font-family:"Playfair Display", serif;
+}
+
+.is-current {
+  pointer-events: none; /* クリックイベント無効 */
+  cursor: default; /* ポインター変更 */
+}
+
+/* ===========================
+   レスポンシブ（～767px）
+=========================== */
+@media (max-width: 767px) {
+
+  /* ========== ヘッダー ========== */
+  .site-header {
+    height: 60px;
+  }
+
+  .header-logo {
+    font-size: 1.5rem;
+    line-height: 60px;
+  }
+
+  /* ========== ハンバーガーメニュー ========== */
+  .hamburger-menu {
+    display: block;
+    font-size: 24px;
+    width: 30px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 200;
+    position: relative;
+  }
+
+  .hamburger-menu span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2.5px;
+    background: #fff;
+    transition: 0.3s;
+  }
+
+  /* ===== ナビゲーションバー展開前 ===== */
+  /* 上線 */
+  .hamburger-menu span:nth-child(1) {
+    top: 0;
+  }
+  /* 中央線 */
+  .hamburger-menu span:nth-child(2) {
+    top: 10px;
+  }
+  /* 下線 */
+  .hamburger-menu span:nth-child(3) {
+    top: 20px;
+  }
+
+  /* ===== ナビゲーションバー展開後 ===== */
+  .hamburger-menu.active span {
+    background: #444;
+  }
+
+  /* 上線 */
+  .hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px;
+  }
+  /* 中央線 */
+  .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+  /* 下線 */
+  .hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 10px;
+  }
+
+  /* ========== ナビゲーションバー ========== */
+  #nav__bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    max-width: 320px;
+    height: 100vh;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    z-index:100;
+    background: rgb(255 255 255 / 80%);
+    backdrop-filter: blur(10px);
+    color: #555;
+  }
+
+  #nav__bar.active {
+    transform: translateX(0);
+  }
+
+  .nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 100px 0 0 30px;
+  }
+
+  /* ナビゲーションバー展開時背景色変更 */
+  .nav__bar--overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 90;
+  }
+
+  .nav__bar--overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .no-scroll {
+    overflow: hidden; /* ナビゲーションバー展開時スクロール無効 */
+  }
+}
+
+
+

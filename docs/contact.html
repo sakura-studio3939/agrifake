@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- ========== Meta ========== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>あぐりふぇいく | お問い合わせ</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png" th:href="@{/user/images/favicon/apple-touch-icon.png}">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" th:href="@{/user/images/favicon/favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png" th:href="@{/user/images/favicon/favicon-16x16.png}">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta name="description" content="架空の農業企業「あぐりふぇいく」のお問い合わせページです。農業への取り組みや農作物についてなど、お問い合わせください。">
+    <meta property="og:title" content="あぐりふぇいく | お問い合わせ">
+    <meta property="og:description" content="架空の農業企業「あぐりふぇいく」のお問い合わせページです。農業への取り組みや農作物についてなど、お問い合わせください。">
+    <meta property="og:image" content="./images/OGP_image.jpeg" th:content="@{/user/images/ogp/OGP_image.jpeg}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://agrifake.com/">
+
+
+    <meta name="description" content="">
+
+    <!-- ========== Google Fonts ========== -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- ========== CSS ========== -->
+    <!-- ===== Reset CSS ===== -->
+    <link rel="stylesheet" href="./css/reset.css" th:href="@{/user/css/reset.css}">
+    <!-- ===== Common CSS　 ===== -->
+    <link rel="stylesheet" href="./css/header.css" th:href="@{/user/css/header.css}">
+    <link rel="stylesheet" href="./css/common.css" th:href="@{/user/css/common.css}">
+    <link rel="stylesheet" href="./css/footer.css" th:href="@{/user/css/footer.css}">
+    <link rel="stylesheet" href="./css/form-modal.css" th:href="@{/common/css/form-modal.css}">
+    <!-- ===== ContactPage CSS　 ===== -->
+     <link rel="stylesheet" href="./css/contact.css" th:href="@{/user/css/contact.css}">
+  </head>
+
+  <body>
+    <!-- ========== ヘッダー ========== -->
+    <div id="header" th:replace="~{user/components/header :: header}"></div>
+
+
+    <main>
+      <!-- ========== お問い合わせイントロ ========== -->
+      <section class="section contact-intro">
+        <header class="headline">
+          <h2 class="headline__text">お問い合わせ</h2>
+        </header>
+
+        <div class="intro__group intro__group--contact-form">
+          <p class="intro__text intro__text--contact-form">
+            気になることがありましたら、どんな小さなことでも構いませんので、お気軽にお問い合わせください。<br>
+            お問い合わせ内容につきましては、担当者が確認のうえ、順次対応させていただきます。<br>
+            お送りいただいた内容を確認のうえ、5営業日以内に担当者よりご連絡させていただきます。<br>
+            お問い合わせをお待ちしております。
+          </p>
+        </div>
+      </section>
+
+
+      <!-- ========== お問い合わせフォーム ========== -->
+      <section class="section contact-form">
+        <header class="headline">
+          <h2 class="headline__text">お問い合わせフォーム</h2>
+        </header>
+
+        <form class="contact-form-group" id="contact-form"
+              th:action="@{/contact}"
+              th:object="${contactFormDto}"
+              method="post"
+              enctype="multipart/form-data">
+          <div class="contact__form--row">
+            <label class="form__label contact__form--label" for="name">お名前<span class="form-required">必須</span></label>
+            <input class="contact__form--input" type="text" id="name" th:field="*{name}" required data-label="お名前">
+          </div>
+          <div class="contact__form--row">
+            <label class="form__label contact__form--label" for="phone">電話番号</label>
+            <input class="contact__form--input" type="tel" id="phone" th:field="*{phone}" data-label="電話番号">
+          </div>
+          <div class="contact__form--row">
+            <label class="form__label contact__form--label" for="email">メールアドレス<span class="form-required">必須</span></label>
+            <input class="contact__form--input" type="email" id="email" th:field="*{email}" required data-label="メールアドレス">
+          </div>
+          <div class="contact__form--row">
+            <label class="form__label contact__form--label" for="contact-message">お問い合わせ内容<span class="form-required">必須</span></label>
+            <textarea class="contact__form--input textarea-input" id="contact-message" th:field="*{contactMessage}" rows="4" required data-label="お問い合わせ内容"></textarea>
+          </div>
+
+          <div class="form-submit">
+            <button class="submit-btn" type="submit" id="openComfirmBtn">送信</button>
+          </div>
+        </form>
+
+        <!-- ---------- 送信確認モーダル ---------- -->
+        <div th:replace="~{common/components/form-modal/confirm.html :: confirm(
+          ${confirm.title},
+          ${confirm.message},
+          ${confirm.cancelLabel},
+          ${confirm.submitLabel}
+        )}"></div>
+
+        <!-- ---------- 完了モーダル ---------- -->
+        <div th:replace="common/components/form-modal/complete :: completeModalFragment"></div>
+
+      </section>
+    </main>
+
+
+
+    <!-- ========== フッター ========== -->
+    <div id="footer" th:replace="~{user/components/footer :: footer}"></div>
+
+    <!-- ========== JavaScript ========== -->
+    <!-- ===== Common Script ===== -->
+    <script type="module" src="./js/header.js" th:src="@{/user/js/header.js}"></script>
+    <script type="module" src="./js/footer.js" th:src="@{/user/js/footer.js}"></script>
+    <!-- ===== ContactPage Script ===== -->
+    <script type="module" src="./js/contact.js" th:src="@{/user/js/contact.js}"></script>
+
+  </body>
+</html>

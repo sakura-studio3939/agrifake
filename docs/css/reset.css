@@ -1,0 +1,41 @@
+/* ボックスサイズをpadding・border込みで計算 */
+* {
+  box-sizing: border-box;
+}
+
+/* bodyのデフォルトの余白を削除 */
+body {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* 画像のはみだし防止 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 見出し・段落の余白リセット */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+/* リストのデフォルトの装飾を削除 */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* リンクの青色と下線上書き */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* リストの余白削除 */
+dl, dt, dd {
+  margin: 0;
+  padding: 0;
+}
