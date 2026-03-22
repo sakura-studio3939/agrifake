@@ -8,7 +8,7 @@ const loadHeader = () => {
 const header = document.getElementById("header");
 
 if (header && header.children.length === 0) {
-  fetch("/header.html")
+  fetch("./header.html")
     .then(res => res.text())
     .then(html => {
       header.innerHTML = html;
